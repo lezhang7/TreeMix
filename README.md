@@ -45,18 +45,16 @@ pip install -r requirements.txt
 
 Note that to successfully run TreeMix, you must install `stanfordcorenlp`. Please refer to this 
 
-[page]: https://stanfordnlp.github.io/CoreNLP/download.html
-
-for more information.
+[corenlp]( https://stanfordnlp.github.io/CoreNLP/download.html "stanfordcorenlp") for more information.
 
 ### Download & Constituency Parsing
 
 ```
 cd process_data
-python get_data.py --data {} --corenlp_dir {} --proc {}
+python get_data.py --data {DATA} --corenlp_dir {CORENLP}
 ```
 
-`data` indicates the dataset name, `corenlp_dir` indicates the directory of `stanfordcorenlp` After this process, you could get corresponding data folder in `DATA/` and `train_parsing.csv`.
+`DATA` indicates the dataset name, `CORENLP` indicates the directory of `stanfordcorenlp` . After this process, you could get corresponding data folder in `DATA/` and `train_parsing.csv`.
 
 ### TreeMix Augmentation
 
