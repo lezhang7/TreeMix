@@ -1,19 +1,19 @@
-## TreeMix: Compositional Constituency-based Data Augmentation for Natural Language Understanding (Submitted to ACL 2022)
+# TreeMix: Compositional Constituency-based Data Augmentation for Natural Language Understanding (Submitted to ACL 2022)
 
 Pytorch Implementation of TreeMix
 
 ![treemix_example](https://i.loli.net/2021/11/30/EhX9iZax3s6jpTC.jpg)
 
-#### Abstract
+## Abstract
 
 Data augmentation is an effective approach to tackle over-fitting. Many previous works have proposed different data augmentations strategies for NLP, such as noise injection, word replacement, back-translation etc. Though effective, they missed one important characteristic of language–compositionality, meaning of a complex expression is built from its subparts. Motivated by this, we propose a compositional data augmentation approach for natural language understanding called TreeMix. Specifically, TreeMix leverages constituency parsing tree to decompose sentences into constituent sub-structures and the Mixup data augmentation technique to recombine them to generate new sentences. Compared with previous approaches, TreeMix introduces greater diversity to the samples generated and encourages models to learn compositionality of NLP data. Extensive experiments on text classification and semantic parsing benchmarks demonstrate that TreeMix outperforms current stateof-the-art data augmentation methods.
 
-#### Code Structure
+## Code Structure
 
 ```
 |__ DATA
 	|__ SST2 
-		|__ DATA
+		|__ data
 			|__ train.csv --> raw train dataset
 			|__ test.csv --> raw test dataset
 			|__ train_parsing --> consituency parsing results
@@ -37,7 +37,7 @@ Data augmentation is an effective approach to tackle over-fitting. Many previous
 |__ batch_train.py -> Train with different datasets and different settings, specified by giving specific arguments 
 ```
 
-#### Getting Started
+### Getting Started
 
 ```
 pip install -r requirements.txt
@@ -49,7 +49,7 @@ Note that to successfully run TreeMix, you must install `stanfordcorenlp`. Pleas
 
 for more information.
 
-#### Download & Constituency Parsing
+### Download & Constituency Parsing
 
 ```
 cd process_data
@@ -58,7 +58,7 @@ python get_data.py --data {} --corenlp_dir {} --proc {}
 
 `data` indicates the dataset name, `corenlp_dir` indicates the directory of `stanfordcorenlp` After this process, you could get corresponding data folder in `DATA/` and `train_parsing.csv`.
 
-#### TreeMix Augmentation
+### TreeMix Augmentation
 
 ```
 python Augmentation.py --data {DATASET} --times {TIMES} --lam1 {LAM1} --lam2 {LAM2} --seeds {SEEDS} 
@@ -66,7 +66,7 @@ python Augmentation.py --data {DATASET} --times {TIMES} --lam1 {LAM1} --lam2 {LA
 
 Augmentation with different arguments, `DATASET` could be **list of data name** such as 'sst2 rte', since 'trec' has two versions, you need to input `--label_name {}`  to specify whether the trec-fine or trec-coarse set. Besides, by typing `--low_resource` , it will generated partial augmentation dataset as well as partial train set. You can modify the hyperparameter `lambda_U` and `lambda_L` by changing `lam1` and `lam2` . `times` could be **a list of intergers** to assign the size of the augmentation dataset.
 
-#### Model Training
+### Model Training
 
 ```
 python batch_train.py --mode {MODE} --data {DATASET}
