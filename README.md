@@ -62,7 +62,7 @@ python get_data.py --data {DATA} --corenlp_dir {CORENLP}
 python Augmentation.py --data {DATASET} --times {TIMES} --lam1 {LAM1} --lam2 {LAM2} --seeds {SEEDS} 
 ```
 
-Augmentation with different arguments, `DATASET` could be **list of data name** such as 'sst2 rte', since 'trec' has two versions, you need to input `--label_name {}`  to specify whether the trec-fine or trec-coarse set. Besides, by typing `--low_resource` , it will generated partial augmentation dataset as well as partial train set. You can modify the hyperparameter `lambda_U` and `lambda_L` by changing `lam1` and `lam2` . `times` could be **a list of intergers** to assign the size of the augmentation dataset.
+Augmentation with different arguments, will generate #(TIMES)×#(SEEDS) extra dataset. `DATASET` could be **list of data name** such as 'sst2 rte', since 'trec' has two versions, you need to input `--label_name {}`  to specify whether the trec-fine or trec-coarse set. Besides, by typing `--low_resource` , it will generated partial augmentation dataset as well as partial train set. You can modify the hyperparameter `lambda_U` and `lambda_L` by changing `LAM1` and `LAM2` . `TIMES` could be **a list of intergers** such as 2,5 to assign the size of the augmentation dataset.
 
 ### Model Training
 
