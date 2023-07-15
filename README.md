@@ -1,4 +1,4 @@
-# TreeMix: Compositional Constituency-based Data Augmentation for Natural Language Understanding (Submitted to ACL 2022)
+# TreeMix: Compositional Constituency-based Data Augmentation for Natural Language Understanding (NAACL 2022)
 
 Pytorch Implementation of [TreeMix](https://arxiv.org/abs/2205.06153)
 
